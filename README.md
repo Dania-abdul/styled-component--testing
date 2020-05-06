@@ -1,5 +1,5 @@
 # styled-component--testing
-testing styles component implementation
+testing styled component implementation
 
 
 ## Installation
