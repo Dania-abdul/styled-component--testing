@@ -1,112 +1,111 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from "react";
 import './App.css';
-import styled, { keyframes } from 'styled-components'
+
+import { ThemeProvider } from "styled-components";
+import darkTheme from "../src/styled-components/themes/dark";
+import lightTheme  from "../src/styled-components/themes/light";
+
+import styled, { keyframes } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
+
+import { GlobalStyle, Header, Nav, Input, Rotate, Line } from './styled-components/generals'
+import { Title, Text, SubTitle } from './styled-components/typography'
+import { Link, PrimaryButton, SecondaryButton  } from './styled-components/clickables'
+import { TableContainer, TableCell, CellHeader, CellContent } from './styled-components/table'
+import { List, ListItem} from './styled-components/lists'
+import { ButtonsBlock, FormCard, Card } from './styled-components/blocks'
 
 
 
+const App = () => {
+  const stored = localStorage.getItem("isDarkMode");
+  const [isDarkMode, setIsDarkMode] = useState(
+    stored === "true" ? true : false
+  );
 
-const Title = styled.h1`
-  font-size: 1.5em;
-  text-align: center;
-  color: palevioletred;
-`;
-
-const Wrapper = styled.section`
-  padding: 4em;
-  background: papayawhip;
-  margin-bottom: 50px;
-`;
-
-const FormWrapper = styled.div`
-  width:100vw;
-  padding:10px 50px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  border:1px solid black;
-  margin: 0 auto;
-  border: 2px solid palevioletred;
- 
-  @media (min-width: 768px) {
-    max-width: 400px;
-    box-sizing:border-box;
-  }
-`
-
-const Input = styled.input.attrs(props => ({
-  type: props.type
-}))`
-width:100%;
-height:40px;
-background: red;
-border-radius: 5px;
-border: 2px solid palevioletred;
-box-sizing:border-box;
-text-align:center;
-margin: 0.2rem;
-background-color: ${props => props.type == "info" ? "#5eafff" : "white"};
-`
-
-const Button = styled.button`
-width:100%;
-  color: palevioletred;
-  display: inline-block;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-`;
-
-const TomatoButton = styled(Button)`
-  color: tomato;
-  border-color: tomato;
-  display: inline-block;
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const Rotate = styled.div`
-  display: inline-block;
-  animation: ${rotate} 2s linear infinite;
-  padding: 2rem 1rem;
-  font-size: 1.2rem;
-`; 
-
-const Link = styled.a`
-  color:blue;
-  text-decoration:none;
-`
-
-
-function App() {
   return (
     <div className="App">
-
-         <Wrapper>
-          <Title>
-            Hello Styled-components! <Rotate>&lt; 💅 &gt;</Rotate>
-          </Title>
-        </Wrapper>
-        <div>
-          <FormWrapper>   
-            <Input type="text" placeholder="yourmail@domain.com"></Input>
-            <Input type="password" placeholder="your password"></Input>
-            <Button>Sign In</Button>
-            <span>Don't have an account? <Link href="github.com">Create One</Link></span>
-          </FormWrapper>
-      </div>
+          <GlobalStyle />
+          <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+            <Header>
+              <Title>
+                Hello Styled-components! <Rotate>&lt; 💅 &gt;</Rotate>
+              </Title>
+              <SubTitle>This is a React Style-Component Playground</SubTitle>
+              <SubTitle>This is a repo that illustrates the very basics of <Link href="https://styled-components.com/">styled-components</Link> with <Link href="https://reactjs.org/"> React</Link>  </SubTitle>
+            </Header>
+            <Nav>
+              <List>
+                <ListItem><Link href="https://github.com/Dania-abdul/styled-component--playground">GitHub repository</Link></ListItem>
+                {/* <ListItem><Link href="https://github.com/Dania-abdul/styled-component--playground"></Link></ListItem>
+                <ListItem></ListItem> */}
+    
+              </List>
+            </Nav>
+            <TableContainer> 
+                <TableCell>
+                  <CellHeader>
+                    <Text>
+                      Buttons
+                    </Text>
+                  </CellHeader>
+                  <CellContent>
+                    <ButtonsBlock>
+                      <PrimaryButton>Primary</PrimaryButton>
+                      <SecondaryButton>Secondary</SecondaryButton>
+                    </ButtonsBlock>
+                  </CellContent>
+                </TableCell>
+      
+                <TableCell>
+                  <CellHeader>
+                    <Text>	Login Form </Text>
+                  </CellHeader>
+                  <CellContent>   
+                    <FormCard>
+                      <Text>Please Login</Text>
+                      <Input type="text" placeholder="yourmail@domain.com"></Input>
+                      <Input type="password" placeholder="your password"></Input>
+                      <PrimaryButton>Primary</PrimaryButton>
+                      <Text>Don't have an account? <Link href="github.com">Create One</Link></Text>
+                   
+                    </FormCard>
+                    </CellContent> 
+                </TableCell>  
+              </TableContainer>
+              <TableContainer> 
+                <TableCell>
+                <CellHeader>
+                  <Text>Dark mood</Text>
+                </CellHeader>
+                <CellContent>
+                  <Card>
+                    <Text>
+                      Dark Mode is {isDarkMode ? "Enabled" : "Disabled"}
+                    </Text>
+                    <PrimaryButton
+                      onClick={() => { setIsDarkMode(!isDarkMode);
+                      localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
+                      >
+                        Dark Mood
+                    </PrimaryButton>
+                  </Card>
+                </CellContent>
+                </TableCell>
+      
+                <TableCell>
+                  <CellHeader>
+                    <Text>
+                      Buttons
+                    </Text>
+                  </CellHeader>
+                  <CellContent>
+                    <PrimaryButton>Primary</PrimaryButton>
+                    <SecondaryButton>Primary</SecondaryButton>
+                  </CellContent>
+                </TableCell>  
+              </TableContainer>
+          </ThemeProvider>
     </div>
   );
 }
