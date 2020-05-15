@@ -13,7 +13,7 @@ import { Title, Text, SubTitle } from './styled-components/typography'
 import { Link, PrimaryButton, SecondaryButton  } from './styled-components/clickables'
 import { TableContainer, TableCell, CellHeader, CellContent } from './styled-components/table'
 import { List, ListItem} from './styled-components/lists'
-import { ButtonsBlock, FormCard, Card } from './styled-components/blocks'
+import { ButtonsBlock, FormCard, Card } from './styled-components/Cards'
 
 
 
@@ -44,20 +44,20 @@ const App = () => {
             </Nav>
             <TableContainer>  
                 <TableCell>
-                <CellHeader>Change mood </CellHeader>
-                <CellContent>
-                  <Card>
-                    <Text>
-                      Vanilla Mode is {isDarkMode ? "Enabled" : "Disabled"}
-                    </Text>
-                    <PrimaryButton
-                      onClick={() => { setIsDarkMode(!isDarkMode);
-                      localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
-                      >
-                        Dark Mood
-                    </PrimaryButton>
-                  </Card>
-                </CellContent>
+                  <CellHeader>Change mood </CellHeader>
+                  <CellContent>
+                    <Card>
+                      <Text>
+                        Vanilla Mode is {isDarkMode ? "Enabled" : "Disabled"}
+                      </Text>
+                      <PrimaryButton
+                        onClick={() => { setIsDarkMode(!isDarkMode);
+                        localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
+                        >
+                          Dark Mood
+                      </PrimaryButton>
+                    </Card>
+                  </CellContent>
                 </TableCell>
                 <TableCell>
                   <CellHeader>Login Form  </CellHeader>
@@ -72,9 +72,6 @@ const App = () => {
                     </FormCard>
                     </CellContent> 
                 </TableCell>  
-              </TableContainer>
-              <TableContainer>
-                
                 <TableCell>
                   <CellHeader> Buttons </CellHeader>
                   <CellContent>
@@ -86,10 +83,9 @@ const App = () => {
                 </TableCell>
       
                 <TableCell>
-                  <CellHeader> Buttons </CellHeader>
+                  <CellHeader> Slider </CellHeader>
                   <CellContent>
-                    <PrimaryButton>Primary</PrimaryButton>
-                    <SecondaryButton>Primary</SecondaryButton>
+
                   </CellContent>
                 </TableCell>  
               </TableContainer>

@@ -4,18 +4,21 @@ import styled from 'styled-components';
 
 export const TableContainer = styled.div `
     display: flex; 
+    flex-wrap: wrap;
     max-width: 1300px;
-    padding: 30px;
     margin: 0 auto;
+    padding: 0 30px;
     box-sizing: border-box;
-    flex-direction: column;
+    flex-direction: column;    
+    
     @media(min-width: 1024px) {
-        flex-direction: row;
-    } 
+        flex-direction: row;    
+    }
 `
 
 export const TableCell = styled.div `
     box-sizing: border-box;
+    min-height: 300px;
     position: relative;
     margin-bottom: 50px;
     display: flex;
@@ -26,14 +29,12 @@ export const TableCell = styled.div `
     border:1px solid black;
     margin: 0 auto;
     border: 2px solid ${props => props.theme.colors.SecondaryColor};
+    width: 100%;
+    margin-bottom: 40px;
 
-    
+
     @media(min-width: 1024px) {
-        margin-bottom: 0;
         width: 50%;
-        &:first-child {
-            margin-right: 15px;
-          }
     }
 `
 

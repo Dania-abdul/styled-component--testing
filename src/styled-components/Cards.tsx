@@ -8,16 +8,19 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 400px;
+    max-width: 300px;
     min-height: 200px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     border-radius: 5px;
     padding: 20px;
-
     justify-content: center;
     
     > p {
         margin-bottom: 15px
+    }
+    
+    @media(min-width: 1024px) {
+        max-width: 400px;
     }
 `
 
