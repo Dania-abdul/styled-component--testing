@@ -25,7 +25,7 @@ export const TableCell = styled.div `
     align-items: center;
     border:1px solid black;
     margin: 0 auto;
-    border: 2px solid ${props => props.theme.colors.TeritaryColor};
+    border: 2px solid ${props => props.theme.colors.SecondaryColor};
 
     
     @media(min-width: 1024px) {
@@ -43,7 +43,8 @@ export const CellHeader = styled.div`
     box-sizing:border-box;
     margin-bottom: 30px;
     width: 100%;
-    background: ${props => props.theme.colors.PrimaryColor};
+    color: white;
+    background: ${props => props.theme.colors.SecondaryColor};
 `
 
 export const CellContent = styled.div`

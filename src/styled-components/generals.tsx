@@ -16,7 +16,8 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Header = styled.header`
     padding: 30px;
-    background: ${props => props.theme.colors.PrimaryColor};
+    color: white;
+    background:  ${props => props.theme.colors.Gradiant100};
     @media (min-width: 1025px) {
         padding: 50px;
     }
@@ -24,7 +25,7 @@ export const Header = styled.header`
 
 export  const Nav = styled.nav`
     padding: 10px;
-    background: darkslategray;
+    background:  ${props => props.theme.colors.SecondaryColor};
     color: white; 
     margin-bottom: 30px;
 `

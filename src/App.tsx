@@ -42,25 +42,25 @@ const App = () => {
     
               </List>
             </Nav>
-            <TableContainer> 
+            <TableContainer>  
                 <TableCell>
-                  <CellHeader>
+                <CellHeader>Change mood </CellHeader>
+                <CellContent>
+                  <Card>
                     <Text>
-                      Buttons
+                      Vanilla Mode is {isDarkMode ? "Enabled" : "Disabled"}
                     </Text>
-                  </CellHeader>
-                  <CellContent>
-                    <ButtonsBlock>
-                      <PrimaryButton>Primary</PrimaryButton>
-                      <SecondaryButton>Secondary</SecondaryButton>
-                    </ButtonsBlock>
-                  </CellContent>
+                    <PrimaryButton
+                      onClick={() => { setIsDarkMode(!isDarkMode);
+                      localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
+                      >
+                        Dark Mood
+                    </PrimaryButton>
+                  </Card>
+                </CellContent>
                 </TableCell>
-      
                 <TableCell>
-                  <CellHeader>
-                    <Text>	Login Form </Text>
-                  </CellHeader>
+                  <CellHeader>Login Form  </CellHeader>
                   <CellContent>   
                     <FormCard>
                       <Text>Please Login</Text>
@@ -73,32 +73,20 @@ const App = () => {
                     </CellContent> 
                 </TableCell>  
               </TableContainer>
-              <TableContainer> 
+              <TableContainer>
+                
                 <TableCell>
-                <CellHeader>
-                  <Text>Dark mood</Text>
-                </CellHeader>
-                <CellContent>
-                  <Card>
-                    <Text>
-                      Dark Mode is {isDarkMode ? "Enabled" : "Disabled"}
-                    </Text>
-                    <PrimaryButton
-                      onClick={() => { setIsDarkMode(!isDarkMode);
-                      localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
-                      >
-                        Dark Mood
-                    </PrimaryButton>
-                  </Card>
-                </CellContent>
+                  <CellHeader> Buttons </CellHeader>
+                  <CellContent>
+                    <ButtonsBlock>
+                      <PrimaryButton>Primary</PrimaryButton>
+                      <SecondaryButton>Secondary</SecondaryButton>
+                    </ButtonsBlock>
+                  </CellContent>
                 </TableCell>
       
                 <TableCell>
-                  <CellHeader>
-                    <Text>
-                      Buttons
-                    </Text>
-                  </CellHeader>
+                  <CellHeader> Buttons </CellHeader>
                   <CellContent>
                     <PrimaryButton>Primary</PrimaryButton>
                     <SecondaryButton>Primary</SecondaryButton>

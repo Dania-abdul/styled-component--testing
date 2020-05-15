@@ -4,12 +4,14 @@ import styled from 'styled-components';
 
 export default {
     colors: {
-        PrimaryColor: "darkslategray",
-        SecondaryColor: "palevioletred",
-        TeritaryColor: " papayawhip",
+        PrimaryColor: "#4593a8",
+        SecondaryColor: "#db7093",
+        TeritaryColor: "green	",
+        Gradiant100: "linear-gradient(0deg, rgb(219, 112, 147), rgb(218, 163, 87))",
+
+        color100: "white",
+        color200: "black",
+        color300: "blue",
         
-        PrimaryText: "white",
-        SecondaryText: "blueviolet",
-        TeritaryText: "green",
     }
 };
