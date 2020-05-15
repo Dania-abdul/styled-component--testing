@@ -10,7 +10,7 @@ export default {
         Gradiant100: "linear-gradient(0deg, rgb(219, 112, 147), rgb(218, 163, 87))",
 
         color100: "white",
-        color200: "black",
+        color200: "#f3b661",
         color300: "blue",
         
     }

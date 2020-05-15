@@ -8,12 +8,13 @@ import lightTheme  from "../src/styled-components/themes/light";
 import styled, { keyframes } from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
-import { GlobalStyle, Header, Nav, Input, Rotate, Line } from './styled-components/generals'
+import { GlobalStyle, Header, Nav, Input, Rotate, Line, Slider } from './styled-components/generals'
 import { Title, Text, SubTitle } from './styled-components/typography'
 import { Link, PrimaryButton, SecondaryButton  } from './styled-components/clickables'
 import { TableContainer, TableCell, CellHeader, CellContent } from './styled-components/table'
 import { List, ListItem} from './styled-components/lists'
 import { ButtonsBlock, FormCard, Card } from './styled-components/Cards'
+
 
 
 
@@ -54,7 +55,7 @@ const App = () => {
                         onClick={() => { setIsDarkMode(!isDarkMode);
                         localStorage.setItem("isDarkMode", `${!isDarkMode}`); }}
                         >
-                          Dark Mood
+                          Change Mood
                       </PrimaryButton>
                     </Card>
                   </CellContent>
@@ -85,7 +86,9 @@ const App = () => {
                 <TableCell>
                   <CellHeader> Slider </CellHeader>
                   <CellContent>
-
+                    <Card>
+                      <Slider></Slider>
+                    </Card>
                   </CellContent>
                 </TableCell>  
               </TableContainer>

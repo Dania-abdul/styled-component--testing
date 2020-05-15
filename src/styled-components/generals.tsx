@@ -4,13 +4,15 @@ import { createGlobalStyle } from 'styled-components';
 
 import { keyframes } from 'styled-components'
 
-
 export const GlobalStyle = createGlobalStyle`
-* {
--webkit-box-sizing: border-box;
-   -moz-box-sizing: border-box;
-        box-sizing: border-box;
-}
+*, *:before, *:after {
+	margin: 0;
+	padding: 0;
+
+	-webkit-box-sizing: border-box ;
+	-moz-box-sizing: border-box ;
+	-ms-box-sizing: border-box ;
+	box-sizing: border-box ;
 
 `;
 
@@ -65,3 +67,64 @@ export const Line = styled.span `
     width: 100%;
     margin: 10px 0;
 `
+// SLIDERS 
+
+const sliderThumbsStyles = (props: any) =>(`
+    width: 15px;
+    height: 25px;
+    background: blue;
+    currsor: pointer;
+
+`)
+
+// ${props => (props.state.value > 10) ? (this.state.value /255) : .1}
+export const StyledSlide = styled.div `
+    display: fex;
+    align-items: center;
+    color:#888;
+    width: 200px;
+    justify-content: space-between;
+    .value {
+        flex: 1;
+    }
+
+    .slider {
+        flex: 6;
+        -webkit-appearance: none;
+        width: 100%;
+        height: 15px;
+        border-radious: 5px;
+        background: ${props => props.theme.colors.color200};
+        
+        &::-webkit-slider-thumb {
+            -webkit-appearance:none;
+            appearance: none;
+            ${props => sliderThumbsStyles(props)}
+        }
+
+        &::-moz-range-thumb {
+            ${props => sliderThumbsStyles(props)}
+        }
+    }
+`;
+
+export class Slider extends React.Component {
+  state = {
+      value: 50
+  }
+
+  handleOnChange = (e: any) => this.setState({ value: e.target.value})
+
+  render() {
+      return (
+          <StyledSlide>
+              <input type="range" min={0} max={255} value={this.state.value} className="slider" onChange={this.handleOnChange} />
+              <div>
+                  <p className="value">{this.state.value}</p>
+              </div>
+          </StyledSlide>    
+      )
+  }
+}
+
+//END SLIDER
